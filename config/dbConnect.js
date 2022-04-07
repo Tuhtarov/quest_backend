@@ -1,7 +1,8 @@
 const {Sequelize} = require("sequelize")
 
-const db = new Sequelize("quest_db", "admin", "admin", {
-    host: "localhost",
+const db = new Sequelize("quests", "root", "root", {
+    host: "db",
+    port: 3306,
     dialect: "mariadb",
     pool: {
         max: 5,
@@ -13,7 +14,6 @@ const db = new Sequelize("quest_db", "admin", "admin", {
         timestamps: true,
         freezeTableName: true
     },
-    
 })
 
 module.exports = db
