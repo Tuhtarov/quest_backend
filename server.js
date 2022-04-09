@@ -1,33 +1,32 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const cors = require("cors")
+require('dotenv').config()
 
-const PORT = 80
-const db = require("./config/dbConnect")
+const PORT = process.env.PORT
+const db = require("./src/config/dbConnect")
 
-const answerR = require("./route/answer")
-const questR = require("./route/quest")
-const taskR = require("./route/task")
-
+const answerR = require("./src/route/answer")
+const questR = require("./src/route/quest")
+const taskR = require("./src/route/task")
 
 //init Express
 const app = express()
 
-app.use(express.json(), cors(), 
-bodyParser.urlencoded({extended : true}))
+app.use(express.json(), cors(),
+    bodyParser.urlencoded({extended: true}))
 
 //Check connection db
-db.authenticate().then(() =>{
+db.authenticate().then(() => {
     console.log("База подключена ...")
-    }).catch(err => {
-        console.log("Error", err)
-    })
+}).catch(err => {
+    console.log("Error", err)
+})
 
 //middleware 
-app.use(answerR)    
+app.use(answerR)
 app.use(questR)
 app.use(taskR)
-
 
 app.listen(PORT, () => {
     console.log(`Сервер запустился на ${PORT} порте ...`)

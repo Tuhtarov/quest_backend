@@ -8,8 +8,8 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8001:80
+EXPOSE 80
 
-VOLUME ["/app/src", "/app/config"]
+VOLUME ["app/src"]
 
 CMD ["npm", "run", "dev"]

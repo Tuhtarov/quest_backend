@@ -1,8 +1,8 @@
 const {Sequelize} = require("sequelize")
 
 const db = new Sequelize("quests", "root", "root", {
-    host: "db",
-    port: 3306,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     dialect: "mariadb",
     pool: {
         max: 5,
