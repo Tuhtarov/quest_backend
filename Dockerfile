@@ -12,4 +12,6 @@ EXPOSE 80
 
 VOLUME ["app/src"]
 
-CMD ["npm", "run", "dev"]
+COPY ./.env ./.env
+
+ENTRYPOINT ["npm", "run", "dev"]
