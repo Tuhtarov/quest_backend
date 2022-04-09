@@ -23,9 +23,7 @@ const createAnswer = async(req, res) => {
 const getAnswers = async(req, res) => {
     try{
         const answers = await answer.findAll()
-        return res.status(200).json({
-            answers
-        })
+        return res.status(200).json(answers)
     }
     catch(err){
         console.log(err)

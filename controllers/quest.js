@@ -29,9 +29,7 @@ const createQuest = async(req, res) => {
 const getQuests = async(req, res) => {
     try{
         const quests = await quest.findAll()
-        return res.status(200).json({
-            quests
-        })
+        return res.status(200).json(quests)
     } catch(err){
         console.log(err)
     }

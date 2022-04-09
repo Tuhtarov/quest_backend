@@ -48,9 +48,7 @@ const getTasks = async(req, res) => {
                 }
             ]
         })
-        return res.status(200).json({
-            tasks
-        })
+        return res.status(200).json(tasks)
     }catch(err){
         console.log(err)
     }
