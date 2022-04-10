@@ -22,6 +22,10 @@ const getQuests = async (req, res) => {
             include: {
                 model: Task,
                 as: "tasks",
+                include: {
+                    model: Answer,
+                    as: "answer"
+                }
             }
         })
         return res.status(200).json(quests)
